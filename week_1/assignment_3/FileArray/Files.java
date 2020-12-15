@@ -19,18 +19,18 @@ public class Files implements Directory {
 
 	public String[] getContent(){
 		File directoryPath = new File(workingDirectory);
-		String contents[] = directoryPath.list();
+		String fileList[] = directoryPath.list();
 		
-		return contents;
+		return fileList;
 	}
 
 	@Override
 	public void display() {
 
 		System.out.println("List of files and directories in the specified directory:");
-		String contents[] = getContent();
-		for (int i = 0; i < contents.length; i++) {
-			System.out.println(contents[i]);
+		String fileList[] = getContent();
+		for (int i = 0; i < fileList.length; i++) {
+			System.out.println(fileList[i]);
 		}
 	}
 
