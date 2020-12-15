@@ -17,22 +17,21 @@ public class Files implements Directory {
 		this.workingDirectory = workingDirectory;
 	}
 
-	public ArrayList<String> getContent(){
+	public String[] getContent(){
 		File directoryPath = new File(workingDirectory);
-		ArrayList<String> Files = new ArrayList<String>();
 		String contents[] = directoryPath.list();
-		for(int i=0; i<contents.length; i++) {
-	           Files.add(contents[i]);
-	        }
 		
-		return Files;
+		return contents;
 	}
 
 	@Override
 	public void display() {
 
-		System.out.println("List of files and directories in the specified directory:" + getContent());
-
+		System.out.println("List of files and directories in the specified directory:");
+		String contents[] = getContent();
+		for (int i = 0; i < contents.length; i++) {
+			System.out.println(contents[i]);
+		}
 	}
 
 }

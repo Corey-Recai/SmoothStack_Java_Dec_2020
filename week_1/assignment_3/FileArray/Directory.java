@@ -10,6 +10,6 @@ import java.util.ArrayList;
  *
  */
 public interface Directory {
-	public ArrayList<String> getContent();
+	public String[] getContent();
 	public void display();
 }
