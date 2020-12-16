@@ -53,7 +53,7 @@ public class FileHandler implements DataProcessor {
 		String[] fileLines = fileContent.toString().split(System.lineSeparator());
 		try {
 			FileWriter userFile = new FileWriter(filePath);
-			for (String s: fileLines) {
+			for (String s : fileLines) {
 				userFile.write((s + System.lineSeparator()));
 			}
 			userFile.close();

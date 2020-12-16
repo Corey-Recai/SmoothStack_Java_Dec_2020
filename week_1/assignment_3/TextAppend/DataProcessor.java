@@ -3,7 +3,6 @@
  */
 package com.ss.basics.TextAppend;
 
-
 /**
  * @author coreyrecai
  *
