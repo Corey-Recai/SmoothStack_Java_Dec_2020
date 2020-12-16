@@ -3,9 +3,6 @@
  */
 package com.ss.basics.FileArray;
 
-import java.io.File;
-import java.util.ArrayList;
-
 /**
  * @author coreyrecai
  *
