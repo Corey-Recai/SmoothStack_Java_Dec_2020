@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -21,14 +20,14 @@ public class FileHandler implements DataProcessor {
 		this.filePath = filePath;
 	}
 
-	public ArrayList<String> getFileContent() {
-		ArrayList<String> fileContent = new ArrayList<String>();
+	public StringBuffer getFileContent() {
+		StringBuffer fileContent = new StringBuffer();
 		try {
 			File fileObj = new File(filePath);
 			Scanner fileData = new Scanner(fileObj);
 			while (fileData.hasNextLine()) {
 				String data = fileData.nextLine();
-				fileContent.add((data + "\n"));
+				fileContent.append((data + System.lineSeparator()));
 			}
 			fileData.close();
 		} catch (FileNotFoundException e) {
@@ -41,21 +40,21 @@ public class FileHandler implements DataProcessor {
 	@Override
 	public void displayFileContent() {
 
-		System.out.println("Here is the text that your file contains:");
-		ArrayList<String> fileContent = getFileContent();
-		for (int i = 0; i < fileContent.size(); i++) {
-			System.out.println(fileContent.get(i));
-		}
+		System.out.println("Here is the text that your file contains:\n\n");
+
+		System.out.println(getFileContent());
+
 	}
 
 	@Override
 	public void writeFileContent(String userContent) {
-		ArrayList<String> fileContent = getFileContent();
-		fileContent.add((userContent + "\n"));
+		StringBuffer fileContent = getFileContent();
+		fileContent.append((userContent + System.lineSeparator()));
+		String[] fileLines = fileContent.toString().split(System.lineSeparator());
 		try {
 			FileWriter userFile = new FileWriter(filePath);
-			for (int i = 0; i < fileContent.size(); i++) {
-				userFile.write(fileContent.get(i));
+			for (String s: fileLines) {
+				userFile.write((s + System.lineSeparator()));
 			}
 			userFile.close();
 			System.out.println("\n\n*********************************** \n" + "*********************************** \n"

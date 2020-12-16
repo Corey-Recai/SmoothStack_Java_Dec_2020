@@ -3,15 +3,13 @@
  */
 package com.ss.basics.TextAppend;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 /**
  * @author coreyrecai
  *
  */
 public interface DataProcessor {
-	public ArrayList<String> getFileContent();
+	public StringBuffer getFileContent();
 
 	public void displayFileContent();
 
